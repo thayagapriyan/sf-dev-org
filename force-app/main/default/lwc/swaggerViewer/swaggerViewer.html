@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="External API Documentation" icon-name="standard:service_territory">
+        <div class="slds-p-around_medium">
+            <div class="swagger-container">
+                <template if:false={isUILoaded}>
+                    <p>Loading Swagger UI...</p>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
