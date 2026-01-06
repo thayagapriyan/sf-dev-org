@@ -1,0 +1,10 @@
+.slds-p-around_medium {
+    padding: 16px;
+}
+
+p {
+    margin: 0;
+    color: #3f3f3f;
+    line-height: 1.5;
+    font-size: 14px;
+}

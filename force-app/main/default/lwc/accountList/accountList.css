@@ -1,0 +1,43 @@
+/* Account List Component Styles */
+
+:host {
+    display: block;
+}
+
+/* Card container styles */
+lightning-card {
+    --sds-c-card-radius-border: 0.5rem;
+}
+
+/* Search input styling */
+lightning-input[type="search"] {
+    min-width: 250px;
+}
+
+/* Datatable container */
+.slds-p-horizontal_medium {
+    padding-bottom: 1rem;
+}
+
+/* Error alert styling */
+.slds-alert_error {
+    border-radius: 0.25rem;
+}
+
+/* No records illustration */
+.slds-illustration {
+    padding: 2rem;
+}
+
+.slds-illustration h3 {
+    color: #706e6b;
+}
+
+.slds-illustration p {
+    color: #969492;
+}
+
+/* Loading spinner container */
+.slds-align_absolute-center {
+    min-height: 200px;
+}

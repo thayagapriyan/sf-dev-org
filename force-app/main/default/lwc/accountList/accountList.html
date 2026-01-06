@@ -1,0 +1,65 @@
+<template>
+    <lightning-card title="Accounts" icon-name="standard:account">
+        <!-- Search Input -->
+        <div slot="actions">
+            <lightning-input 
+                type="search" 
+                label="Search Accounts" 
+                variant="label-hidden"
+                placeholder="Search by name..."
+                onchange={handleSearch}
+                value={searchKey}>
+            </lightning-input>
+        </div>
+
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-p-around_large">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Error Message -->
+        <template if:true={error}>
+            <div class="slds-p-around_medium">
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <span class="slds-assistive-text">error</span>
+                    <h2>Error loading accounts: {errorMessage}</h2>
+                </div>
+            </div>
+        </template>
+
+        <!-- Account Table -->
+        <template if:true={hasAccounts}>
+            <div class="slds-p-horizontal_medium">
+                <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_small">
+                    Showing {accountCount} accounts
+                </p>
+                <lightning-datatable
+                    key-field="Id"
+                    data={accounts}
+                    columns={columns}
+                    hide-checkbox-column
+                    show-row-number-column
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </div>
+        </template>
+
+        <!-- No Records Message -->
+        <template if:false={hasAccounts}>
+            <template if:false={isLoading}>
+                <template if:false={error}>
+                    <div class="slds-p-around_medium slds-align_absolute-center">
+                        <div class="slds-illustration slds-illustration_small">
+                            <div class="slds-text-longform">
+                                <h3 class="slds-text-heading_medium">No Accounts Found</h3>
+                                <p class="slds-text-body_regular">There are no accounts to display.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </lightning-card>
+</template>
